@@ -1,0 +1,23 @@
+# SAE23-Projet
+
+Votre groupe de projet est sollicité pour développer un outil informatique répondant aux besoins des étudiants de votre formation universitaire. Il s'agit d'afficher le domicilomètre-densité des étudiants du BUT1 R&T. Ce domicilomètre-densité affiche des infos sur la ville de résidence principale et secondaire (s'il y a lieu) de chaque étudiant de la promotion. Il affiche la surface, la densité et si il s'agit d'une grande ville dense, moyennement dense ou peu dense, etc. Cela est à déterminer pour chaque lieu de résidence, à partir des informations de superficie, du nombre d'habitants et de densité de population.
+
+En quelque sorte, vous êtes invités à réfléchir à une application qui cartographie les caractéristiques de densité des résidences (principale et secondaire) d'un groupe d'étudiants de l'université en BUT1 R&T ALT, une application qui recense non seulement la ville, le nombre d'habitants, la surface de la cille, la densité, mais aussi le type de densité (peu dense, moyennement dense, dense, très densément peuplé). L'application stocke ces données dans une base de données.
+
+Pour chaque étudiant, nous renseignerons les domiciliations, celle principale et celle secondaire (obligatoire pour une domiciliation au moins). 
+
+Ces informations sont saisies de 2 manières :
+- tout d'abord sous la forme d'un fichier csv ou json qui sera complété des informations en provenance du fichier ville.csv que vous connaissez depuis l'UE R208
+- puis depuis une base de donnée renseignée ou bien à renseigner depuis une interface web ou mobile.
+
+Pour la première saisie, plusieurs possibilités sont possibles. À vous d'en choisir une et de la concevoir et de la réaliser. Mais il vous est proposer de confectionner un premier fichier csv ou json contenant les informations pour chaque étudiant : nom, prénom, adresse résidence principale + date de début et date de fin, adresse résidence secondaire + date de début et date de fin. Depuis ce fichier vous pourrez initialiser la base de donnée. Ensuite, vous modifierez, compléterez alors la base de donnée de nouvelles informations.
+
+L'application pourra afficher le domicilomètre-densité présent et historique de chaque étudiant, il pourra aussi afficher le domicilomètre-densité médian du groupe d'élève. Cela constituera les domicilomètres-densités individuels et celui collectif.
+
+Cette solution sur laquelle vous planchez est expérimentale car elle est complexe dans tous les cas à prendre en compte. Aussi c'est un parti pris de proposer un cahier des charges imparfait et évolutif.
+
+Cette version peut-être vue comme une solution qui cartographie des informations de dénivelés des lieux de résidences qui comptent pour un public donné. Elle propose une interface de gestion des données domicile des étudiants. 
+
+Vous pouvez donc choisir de concevoir cet outil sous forme d’un site Web ; l’outil sera ainsi facilement
+accessible des utilisateurs, grâce à un simple navigateur Web ou une application mobile.
+Le professionnel doit alors - en plus du développement - documenter les fonctionnalités de son outil et former les utilisateurs à son utilisation.
