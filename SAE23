@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>csv</title>
+</head>
+<body>
+	<div>
+
+<?php
+
+$dbServername="";
+$dbUsername = "ykhasser";
+$dbPassword="";
+$dbName="";
+
+$conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+  mysqli_close($conn);
+}
+echo "Connected successfully to database $dbName"; 
+
+// récupération de tous les enregistrements de la table utilisateurs
+$resultat = mysql_query(  $_POST["prenom"]. $connexion);
+if ($resultat) {
+
+echo "<h1> 	Resultat de votre recherche </h1>\n";
+// nb de lignes contenu dans resultat
+$nbUtilisateur = mysql_num_rows($resultat); // retourne le nombre de ligne
+if ( $nbUtilisateur > 0) { // plus de 0 lignes
+	// récupération de chaque ligne
+
+	echo "<table border='1'>\n";
+	echo "<tr>\n";
+	echo "<td><strong>Prenom</stong></td>\n";
+	echo "<td><strong>Nom</stong></td>\n";
+	echo "<td><strong>Email</stong></td>\n";
+	echo "<td><strong>Année de naissance</stong></td>\n";
+	echo "</tr>\n";
+
+	while ($nome = mysql_fetch_array ($resultat)) {
+
+		echo "<tr>\n" ;
+		echo "<td>" . $nome["Nom"] . "</td>\n";
+		echo "<td>" . $nome["Prenom"] . "</td>\n";
+		echo "<td>" . $nome["Groupe"] . "</td>\n";
+		echo "<td>" . $nome["Ville"] ."</td>\n";
+		echo "</tr>\n";
+	}
+
+		echo "</table>\n";
+
+	}else{
+
+		echo "<p> Désolé il n'y a pas de réponse correspondat à votre recherche. <\p>";
+	}
+
+} else{
+
+	echo "erreure dans l'éxecution de la requête</br>";
+
+
+}
+
+SELECT Ville.alt_min,Ville.alt_max,Ville.denivelé FROM Ville,etudiant WHERE etudiant.Nom=Nom AND etudiant.Ville=Ville.ville
