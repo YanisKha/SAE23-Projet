@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<style>
+a{
+text-decoration:none;
+}
+</style>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="css2.css" />
+<script type="text/javascript" src="afficher_cacher_div.js"></script>
+<title>SAE23</title>
+</head>
+<center>
+<body>
+    <h1>Eleves</h1>
+
+    <button>
+        <a href="Adel_ exp.html">Accueil</a>  
+      </button>
+    <button>
+      <a href="formulaire.html">Formulaire</a> 
+      </button>
+    <button>
+      <a href="Eleves.html">Eleves</a>
+      </button>
+    <button>
+      <a href="Groupe.html">Groupe</a>
+      </button>
+    <button>
+      <a href="Source.html">Source</a>
+      </button>
+</center>
+
+<div>
+
+
+  <form method="get">
+    <input type="text" id="groupe" name="groupe">
+    <button id="bouton" type="submit"> Envoyer données</button>
+  
+  
+  <?php 
+  
+  
+  
+  $servername="localhost";
+    $username="root";
+    $password="";
+    $dbname="sae 23";
+    $conn=new mysqli($servername,$username,$password,$dbname);
+    if(!$conn){
+      echo "La connexion a échoué";
+    } else {
+      echo "La connexion a marché";
+    }
+  
+  $test=$_GET['groupe'];
+  // echo "$test";
+  $sql= "SELECT DISTINCT * FROM ville,etudiant WHERE etudiant.groupe='$test' AND etudiant.id_rp= ville.id_ville";
+  echo "$sql";
+  
+  echo "<br>";
+  $ret = mysqli_query ($conn, $sql);
+  
+  
+  // récupération de tous les enregistrements de la table utilisateurs
+  
+  
+  
+  
+  
+  
+  if ($ret->num_rows > 0) {
+  
+  
+  echo "<table border><tr><th>nom</th><th>prenom</th><th>alt_min</th><th>alt_max</th></tr>";
+  while ($ligne = $ret -> fetch_assoc()) {
+    echo "<td>" . $ligne['nom'] . "</td><td>" . $ligne['prenom'] ."</td><td>" . $ligne['alt_min'] ."</td><td>" . $ligne['alt_max'] ."</td><td>" . $ligne['denivelé'] ."</td></tr>" ;
+      }
+  echo "</table>";
+    } else {
+      echo "0 résultats";
+    }
+  
+  ?>
+  
+  
+  </form>
+  </div>
+
+
+</body>
+</html>

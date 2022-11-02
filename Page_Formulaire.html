@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<style>
+a{
+text-decoration:none;
+}
+</style>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="cssform.css" />
+<script type="text/javascript" src="afficher_cacher_div.js"></script>
+<title>SAE23</title>
+</head>
+<center>
+<body>
+    <h1>Formulaire</h1>
+
+    <button>
+        <a href="Adel_ exp.html">Accueil</a>  
+      </button>
+    <button>
+      <a href="formulaire.html">Formulaire</a> 
+      </button>
+    <button>
+      <a href="Eleves.html">Eleves</a>
+      </button>
+    <button>
+      <a href="Groupe.html">Groupe</a>
+      </button>
+    <button>
+      <a href="Source.html">Source</a>
+      </button>
+</center>
+    <form>
+      <h1>Contactez-nous</h1>
+      <div class="separation"></div>
+      <div class="corps-formulaire">
+        <div class="gauche">
+          <div class="groupe">
+            <label>Votre Prénom</label>
+            <input type="text" autocomplete="off" />
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="groupe">
+            <label>Votre adresse e-mail</label>
+            <input type="text" autocomplete="off" />
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="groupe">
+            <label>Votre téléphone</label>
+            <input type="text" autocomplete="off" />
+            <i class="fas fa-mobile"></i>
+          </div>
+        </div>
+
+        <div class="droite">
+          <div class="groupe">
+            <label>Message</label>
+            <textarea placeholder="Saisissez ici..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pied-formulaire" align="center">
+        <button>Envoyer le message</button>
+      </div>
+    </form>
+
+    <!DOCTYPE html>
+
+<form method="get">
+	<input type="text" id="Prenom" name="Prenom">
+	<button id="bouton" type="submit"> Envoyer données</button>
+
+
+<?php 
+
+
+
+$servername="localhost";
+  $username="root";
+  $password="";
+  $dbname="sae 23";
+  $conn=new mysqli($servername,$username,$password,$dbname);
+  if(!$conn){
+    echo "La connexion a échoué";
+  } else {
+    echo "La connexion a marché";
+  }
+
+$test=$_GET['Prenom'];
+// echo "$test";
+$sql= "SELECT DISTINCT * FROM ville,etudiant WHERE etudiant.nom='$test' AND etudiant.id_rp= ville.id_ville";
+echo "$sql";
+
+echo "<br>";
+$ret = mysqli_query ($conn, $sql);
+
+
+// récupération de tous les enregistrements de la table utilisateurs
+
+
+
+
+
+
+if ($ret->num_rows > 0) {
+
+
+echo "<table border><tr><th>nom</th><th>prenom</th><th>alt_min</th><th>alt_max</th></tr>";
+while ($ligne = $ret -> fetch_assoc()) {
+	echo "<td>" . $ligne['nom'] . "</td><td>" . $ligne['prenom'] ."</td><td>" . $ligne['alt_min'] ."</td><td>" . $ligne['alt_max'] ."</td><td>" . $ligne['denivelé'] ."</td></tr>" ;
+		}
+echo "</table>";
+  } else {
+    echo "0 résultats";
+  }
+
+
+
+
+
+
+
+// nb de lignes contenu dans resultat 
+
+
+
+?>
+
+
+</form>
+</div>
+  </body>
+</html>
+
+
+
+
+
